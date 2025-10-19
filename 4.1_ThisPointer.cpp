@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNumber;
+    float marks;
+
+public:
+    Student() {
+        name = "";
+        rollNumber = 0;
+        marks = 0.0;
+    }
+
+    void setDetails(string name, int rollNumber, float marks) {
+        this->name = name;
+        this->rollNumber = rollNumber;
+        this->marks = marks;
+    }
+
+    Student& updateName(string name) {
+        this->name = name;
+        return *this; // Return current object for chaining
+    }
+
+    Student& updateMarks(float marks) {
+        this->marks = marks;
+        return *this; // Return current object for chaining
+    }
+
+    void display() {
+        cout << "\n--- Student Record ---\n";
+        cout << "Name: " << name << endl;
+        cout << "Roll No.: " << rollNumber << endl;
+        cout << "Marks: " << marks << "/100\n";
+    }
+};
+
+int main() {
+    Student s1;
+    string n;
+    int r;
+    float m;
+
+    cout << "Enter Student Name: ";
+    getline(cin, n);
+    cout << "Enter Roll Number: ";
+    cin >> r;
+    cout << "Enter Marks (out of 100): ";
+    cin >> m;
+
+    s1.setDetails(n, r, m);
+    s1.display();
+
+    string updatedName;
+    float updatedMarks;
+
+    cout << "\nUpdate Name: ";
+    cin.ignore();
+    getline(cin, updatedName);
+    cout << "Update Marks: ";
+    cin >> updatedMarks;
+
+    // Chaining member function calls
+    s1.updateName(updatedName).updateMarks(updatedMarks);
+    s1.display();
+
+    return 0;
+}
