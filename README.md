@@ -1,4 +1,4 @@
-# Cpp_Sandbox
+# Cpp_Core Programs
 This repository contains the C++ programs from the "Programming with C++" lab course (Course Code: 241AI033). The programs cover fundamental and advanced concepts of C++, from basic syntax to object-oriented principles, templates, and exception handling.
 
 ## Lab Programs
